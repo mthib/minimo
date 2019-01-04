@@ -1,28 +1,20 @@
 .header{
-	display: flex; /* contexte sur le parent */
 	margin:40px 10px;
-	
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header .logo{
-	 margin: auto
 }
 
 .header ul{
-	list-style-type: none; 
 	font-family: 'Playfair Display', serif;
-	 margin: auto;
-
+	text-align:right;
 }
 
 .header ul li{
-	 display:inline;
 	 padding-left:6em; /* Pour espacer les boutons entre eux */
-}
-
-.contenu{
-	max-width:900px;
-	margin:auto;
 }
 
 .margeContenu{
@@ -38,8 +30,6 @@
 	display:block;
 	margin:auto;
 }
-
-
 
 .simple-subscription-form .button {
   margin-bottom: 0;

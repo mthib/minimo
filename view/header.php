@@ -17,20 +17,22 @@
 	<body>
 
 	<div class="grid-container">
-      <div class="grid-x grid-padding-x">
-        <div class="large-12 cell header">
+      <div class="grid-x grid-padding-x header">
+        <div class="large-3 medium-3 small-12 cell">
 			<img src="assets/images/logo_minimo.png" class="logo"/>
-			<ul>
-				<!--<li>LIFESTYLE</li>
+		</div>
+		<div class="large-9 medium-9 small-12 cell">
+			<ul class="vertical medium-horizontal menu">
+				<li>LIFESTYLE</li>
 				<li>PHOTODIARY</li>
 				<li>MUSIC</li>
-				<li>TRAVEL</li>-->
+				<li>TRAVEL</li
 				<?php
 			foreach($categories as $category)
-				echo '<li>'.strtoupper($category).'</li>';
+				;//echo '<li>'.strtoupper($category).'</li>';
 				?>
 			</ul>	
         </div>
       </div>
-	  
+	 
 	  

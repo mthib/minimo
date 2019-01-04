@@ -4,7 +4,8 @@ foreach($articlesFiles as $element)
 {
 	if(($compteur % 2) == 0) // ouvre une div au premier article
 		echo '<div class="grid-x grid-padding-x align-center margeContenu">
-				<div class="large-9 cell">';
+				<div class="large-9 cell">
+					<div class="grid-x grid-padding-x">';
 	
 	echo '<div class="large-6 medium-6 cell">';
 	echo '<img src="assets/images/'.$element[1]->post_name().'"/>'; // element[1] => objet file
@@ -14,7 +15,7 @@ foreach($articlesFiles as $element)
 	echo '</div>';
 	
 	if(($compteur % 2) == 1)
-		echo '</div></div>'; // ferme la div au deuxieme article
+		echo '</div></div></div>'; // ferme la div au deuxieme article
 	
 	$compteur++;
 }
