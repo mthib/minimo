@@ -1,7 +1,10 @@
 <?php
-include 'header.php';
-//require('controller/frontend.php');
 
-include 'view/Accueil.php';
+require('controller/frontend.php');
 
-include 'footer.php';
+createHeader();
+firstArticle();
+displayArticles();
+displayFormNewsletter();
+
+include 'view/footer.php';

@@ -1,9 +1,11 @@
- <!DOCTYPE html>
-<html>
-	<head>
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Minimo</title>
     
-		<meta charset="utf-8" />
 		<link rel="stylesheet" href="assets/css/foundation.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/app.css">
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet"> 
@@ -19,10 +21,16 @@
         <div class="large-12 cell header">
 			<img src="assets/images/logo_minimo.png" class="logo"/>
 			<ul>
-				<li>LIFESTYLE</li>
+				<!--<li>LIFESTYLE</li>
 				<li>PHOTODIARY</li>
 				<li>MUSIC</li>
-				<li>TRAVEL</li>
+				<li>TRAVEL</li>-->
+				<?php
+			foreach($categories as $category)
+				echo '<li>'.strtoupper($category).'</li>';
+				?>
 			</ul>	
         </div>
       </div>
+	  
+	  
