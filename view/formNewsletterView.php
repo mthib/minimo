@@ -1,5 +1,5 @@
 <div class="grid-x grid-padding-x align-center margeContenu">
-	<div class="large-9 cell backgroundNewsletter">
+	<div class="large-9 cell backgroundGrey">
 		<div class="simple-subscription-form">
 		  <form>
 			<h1>Sign up for our newsletter</h1>

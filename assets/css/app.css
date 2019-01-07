@@ -1,8 +1,6 @@
 .header{
 	margin:40px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .header .logo{
@@ -10,15 +8,23 @@
 
 .header ul{
 	font-family: 'Playfair Display', serif;
-	text-align:right;
+	float:right;
 }
 
 .header ul li{
-	 padding-left:6em; /* Pour espacer les boutons entre eux */
+	 padding-left:4em; /* Pour espacer les boutons entre eux */
+}
+
+.header ul li a{
+	color:#626262;
 }
 
 .margeContenu{
 	margin:50px 0;
+}
+
+.imagePrincipale {
+	width:100%;
 }
 
 .textAlignCenter{
@@ -37,7 +43,7 @@
   background-color:#626262;
 }
 
-.backgroundNewsletter{
+.backgroundGrey{
 	padding:10px 0 30px 0;
 	background-color:lightgrey;
 }
@@ -48,6 +54,11 @@
 	padding:15px;
 	display: block;
 	margin :0 auto 80px;
+}
+
+.barShare {
+	float:right;
+	margin-bottom:30px;
 }
 
 .backgroundFooter{
@@ -73,8 +84,22 @@ h2{
 	margin:20px 0;
 }
 
+h3{
+	font-family: 'Ubuntu', sans-serif;
+	font-size:15px;
+	font-weight:bold;
+}
+
 .texte{
 	color:#626262;
 	font-family: 'Ubuntu', sans-serif;
 	text-align: justify;
+}
+
+.petitH1{
+		font-size:20px;
+}
+
+.h2Inline{
+	display:inline;
 }
