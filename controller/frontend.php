@@ -30,12 +30,16 @@ function displayArticle($id)
     require('view/firstArticleView.php');
 }
 
-function displaySideBar()
+function displayArticleWithSideBar($id)
 {
 	$postRepository = new PostRepository();
+	
+	$article = $postRepository->getArticleById($id);
+	$fileArticle = $postRepository->getFile($article->id());
+	
 	$comments = $postRepository->getMostCommented();
 
-    require('view/sideBarView.php');
+    require('view/articleSideBarView.php');
 }
 
 

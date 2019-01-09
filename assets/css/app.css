@@ -90,6 +90,14 @@ h3{
 	font-weight:bold;
 }
 
+h4{
+	color:#b4ad9e;
+	font-family: 'Playfair Display', serif;
+	font-weight:normal;
+	font-size:10px;
+	margin:10px 0 20px;
+}
+
 .texte{
 	color:#626262;
 	font-family: 'Ubuntu', sans-serif;
@@ -103,3 +111,41 @@ h3{
 .h2Inline{
 	display:inline;
 }
+
+.couleurLien{
+	color:#626262;
+}
+
+.couleurButton{
+  background-color:#626262;
+}
+
+.comment-section-container {
+  background-color: #fefefe;
+  padding: 1rem;
+}
+
+.comment-section-author {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+}
+
+.comment-section-author .comment-section-name {
+  margin-left: 1rem;
+}
+
+.comment-section-author .comment-section-name p {
+  margin-bottom: 0;
+}
+
+.comment-section-box {
+  background-color: white;
+  padding: 1rem;
+}
+
+

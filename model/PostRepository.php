@@ -96,7 +96,7 @@ class PostRepository
 	{
 		$articles = [];
 
-		$q = $this->_db->prepare('SELECT * FROM posts WHERE id <> :id AND post_type="article" AND post_status="publish" ORDER BY id');
+		$q = $this->_db->prepare('SELECT * FROM posts WHERE id <> :id AND post_type="article" OR post_type="page" AND post_status="publish" ORDER BY RAND() LIMIT 3');
 		$q->bindValue(':id', $idArticle, PDO::PARAM_INT);
 		$q->execute();
 
@@ -140,40 +140,39 @@ class PostRepository
 	
 	public function getMostCommented()
 	{
-		/*$posts = [];
-		
-		$q = $this->_db->query('SELECT id,post_title FROM posts WHERE post_type="article" OR post_type="page" AND post_status="publish" ORDER BY id');
-
-		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-		{
-			$posts[] = new array($donnees['id'],$donnees['post_title']);
-		}*/
-		
-		$post_ids = [];
-		
-		$q = $this->_db->query('SELECT post_id FROM comments GROUP BY post_id');
-
-		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-		{
-			$post_ids[] = $donnees['post_id'];
-		}
 		
 		$comments = [];
 		
-		foreach($post_ids as $post_id)
-		{
-			
-			$q = $this->_db->prepare('SELECT post_title FROM posts WHERE id = :post_id');
-			$q->bindValue(':post_id', $post_id, PDO::PARAM_INT);
-			$q->execute();
+		$q = $this->_db->query('SELECT posts.post_title,posts.id, COUNT(comments.post_id) AS nbComments FROM posts, comments WHERE comments.post_id = posts.id GROUP BY post_id ORDER BY COUNT(post_id) DESC LIMIT 3');
 
-			while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-			{
-				$comments[] = array($donnees['post_title'],$post_id);
-			}
+		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
+		{
+			$comments[] = array($donnees['post_title'],$donnees['nbComments'],$donnees['id']);
 		}
 		
 		return $comments;
 	}
+	
+	public function insertComment($comment)
+	{
+		
+		$q = $this->_db->prepare("INSERT INTO comments (id, post_id, comment_name, comment_email, comment_content, comment_date) VALUES (NULL, :post_id, :comment_name, :comment_email, :comment_content, NOW())");
+		$q->bindValue(':post_id', $comment->post_id(), PDO::PARAM_INT);
+		$q->bindValue(':comment_name', $comment->comment_name(), PDO::PARAM_STR);
+		$q->bindValue(':comment_email', $comment->comment_email(), PDO::PARAM_STR);
+		$q->bindValue(':comment_content', $comment->comment_content(), PDO::PARAM_STR);
+		
+		return $q->execute();
+	}	
+	
+	public function insertNewsletter($email)
+	{
+		
+		$q = $this->_db->prepare("INSERT INTO newsletter (id, newsletter_email) VALUES (NULL, :newsletter_email)");
+		$q->bindValue(':newsletter_email', $email, PDO::PARAM_STR);
+
+		return $q->execute();
+	}
 }
+
 
