@@ -56,7 +56,7 @@ class PostRepository
 	{
 		$articles = [];
 		
-		$q = $this->_db->prepare('SELECT * FROM posts WHERE post_category = :category');
+		$q = $this->_db->prepare('SELECT * FROM posts WHERE post_status="publish" AND post_category = :category');
 		$q->bindValue(':category', $category, PDO::PARAM_STR);
 		$q->execute();
 		
