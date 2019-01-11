@@ -1,6 +1,7 @@
 <?php 
 $compteur = 0;
 $nbArticles = count($articlesFiles);
+
 foreach($articlesFiles as $element)
 {
 	if($compteur % 2 == 0) // ouvre une div au premier article
@@ -18,11 +19,15 @@ foreach($articlesFiles as $element)
 	if($compteur % 2 == 1 || $compteur == $nbArticles - 1)
 		echo '</div></div></div>'; // ferme la div au deuxieme article
 	
+	
 	$compteur++;
 }
-
-		
-			
+if($_SESSION['nbArticles'] <= $_SESSION['startArticle']) 
+{
+?>
+<input type="hidden" id="finArticles" value="fin"/>
+<?php
+}
 			
 			
 			

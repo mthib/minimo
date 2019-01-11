@@ -15,7 +15,12 @@ class PostRepository
 		$this->_db = $db;
 	}
 	
-	
+	public function countArticles(){
+		$q = $this->_db->query('SELECT COUNT(*) as nbArticles FROM posts WHERE post_type="article" OR post_type="page" AND post_status="publish" ORDER BY id');
+		$donnees = $q->fetch(PDO::FETCH_ASSOC);
+		
+		$_SESSION['nbArticles'] = $donnees['nbArticles'];
+	}
 	
 	public function getFirstArticle()
 	{
@@ -78,11 +83,16 @@ class PostRepository
 		return new File($donnees);
 	}
 	
-	public function getArticles()
+	public function getArticles($start,$limit)
 	{
+		$_SESSION["startArticle"] += $limit;
+		
 		$articles = [];
 
-		$q = $this->_db->query('SELECT * FROM posts WHERE post_type="article" OR post_type="page" AND post_status="publish" ORDER BY id');
+		$q = $this->_db->prepare('SELECT * FROM posts WHERE post_type="article" OR post_type="page" AND post_status="publish" ORDER BY id LIMIT :limit OFFSET :offset');
+		$q->bindValue(':limit', $limit, PDO::PARAM_INT);
+		$q->bindValue(':offset', $start, PDO::PARAM_INT);
+		$q->execute();
 
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{
@@ -112,7 +122,7 @@ class PostRepository
 	{
 		$categories = [];
 
-		$q = $this->_db->query('SELECT post_category FROM posts WHERE post_type="article" AND post_status="publish" GROUP BY post_category');
+		$q = $this->_db->query('SELECT post_category FROM posts WHERE post_type="article" OR post_type="page" AND post_status="publish" GROUP BY post_category');
 
 		while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
 		{

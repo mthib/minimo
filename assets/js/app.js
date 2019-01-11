@@ -50,5 +50,21 @@ $(document).ready(function() {
     });
  
   });
+	  
+	$("#loadMoreButton").click(function(){
+	  $.ajax({
+			url: "model/loadMore.php",
+			success: function(result){
+			var divArticles = document.getElementById("divArticles");
+			divArticles.innerHTML += result;
+			// masque le bouton read more si besoin
+			if(document.getElementById("finArticles").value == "fin")
+				document.getElementById("loadMoreButton").style.display = "none";
+		  }
+		 });
+	});
+  
 });
+
+
 

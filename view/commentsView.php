@@ -58,7 +58,7 @@ $nbComments = count($comments);
 				  <input type="text" id="comment_email" name="comment_email">
 				</label>
 				<label>Comment
-				  <textarea rows="10" type="text" id="comment_content" name="comment_content"></textarea>
+				  <textarea rows="5" type="text" id="comment_content" name="comment_content"></textarea>
 				</label>
 				<button class="button expanded couleurButton" type="submit">Envoyer</button>
 			  </div>

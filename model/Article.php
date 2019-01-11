@@ -1,6 +1,6 @@
 <?php
 
-require_once('model/Post.php');
+require_once('Post.php');
 
 class Article extends Post
 {

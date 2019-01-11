@@ -27,6 +27,12 @@
 	width:100%;
 }
 
+.photoPerso {
+	/*max-width:100px;*/
+}
+
+
+
 .textAlignCenter{
 	text-align:center;
 }
@@ -54,6 +60,7 @@
 	padding:15px;
 	display: block;
 	margin :0 auto 80px;
+	cursor:pointer;
 }
 
 .barShare {

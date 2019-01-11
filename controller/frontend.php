@@ -6,6 +6,12 @@ require_once('model/File.php');
 require_once('model/Comment.php');
 require_once('model/PostRepository.php');
 
+function countArticles()
+{
+	$postRepository = new PostRepository();
+	$postRepository->countArticles();
+}
+
 function firstArticle()
 {
 	$postRepository = new PostRepository();
@@ -43,10 +49,10 @@ function displayArticleWithSideBar($id)
 }
 
 
-function displayArticles()
+function displayArticles($start,$nbArticleAfficher)
 {
 	$postRepository = new PostRepository();
-	$articles = $postRepository->getArticles();
+	$articles = $postRepository->getArticles($start,$nbArticleAfficher);
 	
 	$articlesFiles = array();
 	foreach($articles as $article) {
@@ -54,7 +60,7 @@ function displayArticles()
 		$articlesFiles[] = array($article,$fileArticle);
 	}
 
-    require('view/articlesView.php');
+    require('view/divArticlesView.php');
 }
 
 function displayCategory($category)

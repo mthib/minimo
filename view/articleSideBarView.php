@@ -20,27 +20,33 @@
 			</span>
 		</div>
 		<div class="large-3 cell">
-			<img src="assets/images/photo1.jpg" />
-			<h1 class="petitH1">About Me</h1>
-			<p class="texte">Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
-			</p>
-			<i class="fab fa-facebook-f"></i>&nbsp;
-			<i class="fab fa-instagram"></i>&nbsp;
-			<i class="fab fa-pinterest-p"></i>&nbsp;
-			<h2>TOP POSTS</h2>
-			<ul>
-			<?php 
-			//comment[0] => titre de l'article
-			//comment[1] => nombre de commentaires de l'article
-			//comment[2] => id de l'article
-				foreach($comments as $comment)
-				{
-					echo '<li><a href="?post_id='.$comment[2].'" class="couleurLien">'.$comment[0].'</a></li>';
-					echo '<h4>'.$comment[1].' COMMENTS</h4>';
-				}
-			?>
-			</ul>
+			<div class="grid-x grid-padding-x align-center margeContenu">
+				<div class="large-12 medium-6 small-6 cell">
+					<img src="assets/images/photo1.jpg" class="photoPerso" />
+					<h1 class="petitH1">About Me</h1>
+					<p class="texte">Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+					</p>
+					<i class="fab fa-facebook-f"></i>&nbsp;
+					<i class="fab fa-instagram"></i>&nbsp;
+					<i class="fab fa-pinterest-p"></i>&nbsp;
+				</div>
+				<div class="large-12 medium-6 small-6 cell">
+					<h2>TOP POSTS</h2>
+					<ul>
+					<?php 
+					//comment[0] => titre de l'article
+					//comment[1] => nombre de commentaires de l'article
+					//comment[2] => id de l'article
+						foreach($comments as $comment)
+						{
+							echo '<li><a href="?post_id='.$comment[2].'" class="couleurLien">'.$comment[0].'</a></li>';
+							echo '<h4>'.$comment[1].' COMMENTS</h4>';
+						}
+					?>
+					</ul>
 	
+				</div>
+			</div>
 		</div>
 		</div>
 	</div>

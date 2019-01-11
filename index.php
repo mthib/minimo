@@ -1,8 +1,10 @@
 <?php
-
+session_start();
 require('controller/frontend.php');
 
 createHeader();
+countArticles();
+$_SESSION["startArticle"] = 0;
 
 if(isset($_GET['category']))
 {
@@ -28,8 +30,11 @@ elseif(isset($_GET['post_id']))
 }
 else
 {
+	
 	firstArticle();
-	displayArticles();
+	// affiche les articles a partir de 0 jusqu'a 4
+	displayArticles(0,4);
+	
 	displayFormNewsletter();
 }
 
